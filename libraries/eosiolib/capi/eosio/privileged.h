@@ -33,6 +33,14 @@ __attribute__((eosio_wasm_import))
 void set_resource_limits( capi_name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight );
 
 /**
+ * Get the usage ram resource limits of an account
+ *
+ * @param account - name of the account whose resource limit to get
+ */
+__attribute__((eosio_wasm_import))
+void get_account_ram_usage( capi_name account );
+
+/**
  * Proposes a schedule change
  *
  * This is exactly equivalent to calling `set_proposed_producers_ex(0, producer_data, producer_data_size)`

@@ -17,6 +17,9 @@ namespace eosio {
 
          __attribute__((eosio_wasm_import))
          void set_resource_limits( uint64_t account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight );
+         
+         __attribute__((eosio_wasm_import))
+         void get_account_ram_usage( uint64_t account );
 
          __attribute__((eosio_wasm_import))
          void set_privileged( uint64_t account, bool is_priv );
@@ -206,6 +209,15 @@ namespace eosio {
     */
    inline void set_resource_limits( name account, int64_t ram_bytes, int64_t net_weight, int64_t cpu_weight ) {
       internal_use_do_not_use::set_resource_limits( account.value, ram_bytes, net_weight, cpu_weight );
+   }
+
+   /**
+    * Get the usage ram resource limits of an account
+    *
+    * @param account - name of the account whose resource limit to get
+    */
+   inline void get_account_ram_usage( name account ) {
+      internal_use_do_not_use::get_account_ram_usage( account.value );
    }
 
    /**
